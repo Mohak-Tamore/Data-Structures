@@ -1,0 +1,91 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#define MAX 5
+
+int TOP=-1, stack[MAX];
+void Push();
+void Pop();
+void display();
+void peek();
+
+void main()
+{
+ int ch;
+ while(1)
+ {
+  printf("\nEnter your choice");
+  printf("\n1.Insert element\n2.Delete element\n3.Display\n4.Peek\n5.End\n");
+  scanf("%d",&ch);
+  switch(ch)
+  {
+   case 1: Push();
+   break;
+   case 2: Pop();
+   break;
+   case 3: display();
+   break;
+   case 4: peek();
+   break;
+   case 5: exit(1);
+   break;
+   default: printf("\nInvalid choice");
+  }
+ }
+}
+
+void Push()
+{
+ int x;
+ if(TOP == MAX-1)
+ {
+  printf("\nStack Overflow");
+ }
+ else
+ {
+  printf("\nEnter element: ");
+  scanf("%d",&x);
+  TOP++;
+  stack[TOP]=x;
+ }
+}
+
+void Pop()
+{
+ if(TOP==-1)
+ {
+  printf("\nStack Underflow");
+ }
+ else
+ {
+  printf("\nElement deleted: %d",stack[TOP]);
+  TOP--;
+ }
+}
+
+void display()
+{
+int i;
+ if(TOP == -1)
+ {
+  printf("\nStack Underflow");
+ }
+ else
+ {
+  printf("\nElements in the stack: \n");
+  for(i=TOP;i>=0;--i)
+  printf("%d\n",stack[i]);
+ }
+}
+
+void peek()
+{
+ if(TOP == -1)
+ {
+  printf("\nStack underflow");
+ }
+ else
+ {
+  printf("\nThe top element is %d",stack[TOP]);
+ }
+}
