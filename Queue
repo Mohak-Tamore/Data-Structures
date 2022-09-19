@@ -107,6 +107,6 @@ void peek()
  }
  else
  {
-  printf("\nFirst element added: %d",queue[FRONT]);
+  printf("\nLast element added: %d",queue[REAR]);
  }
 }
